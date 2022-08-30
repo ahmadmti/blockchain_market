@@ -13,16 +13,15 @@
                     </div>
                     <div class="col-md-9">
                         <span class="text-start text-secondary">
-                            Minute Counter Set Later
+                          Updated  {{ time }} ago
                         </span> 
-                        <span class="text-end text-secondary">
+                        <span class="text-end text-secondary float-end">
                             722 items
                         </span>
                         <NFTGridList :lists="lists" />
                     </div>
                 </div>                
             </div>
-
         </div>
     </div>
 </template>
@@ -30,6 +29,8 @@
 import NFTSetGridFilter from '@/components/nft/NFTSetGridFilter.vue'; // Top Filter Set 3 , 4 Grid
 import NFTFiler from '@/components/nft/LeftFilter.vue';
 import NFTGridList from  '@/components/nft/NFTSGridList.vue';
+import BeforeUpdated from '@/mixin/BeforeUpdated';
+
 export default {
   name : 'NFTList',
   data() {
@@ -62,6 +63,7 @@ export default {
         ]
     }
   },
-  components : { NFTSetGridFilter, NFTFiler, NFTGridList}
+  components : { NFTSetGridFilter, NFTFiler, NFTGridList},
+  mixins : [ BeforeUpdated ]
 }
 </script>
