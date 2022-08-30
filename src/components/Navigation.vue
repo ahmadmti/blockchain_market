@@ -113,8 +113,18 @@
               </ul>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="#" @click="changeRoute('/login')">Create</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Create
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#" class="dropdown-item" @click="changeRoute('/login')">Profile</a></li>
+                  <li><a href="#" class="dropdown-item" @click="changeRoute('/user/account')">Favorite</a></li>
+                  <li><a href="#" class="dropdown-item" @click="changeRoute('/user/collction')">My Collection</a></li>
+                  <li><a href="#" class="dropdown-item" @click="changeRoute('/login')">Setting</a></li>
+                  <li><a href="#" class="dropdown-item" @click="changeRoute('/login')">Logout</a></li>
+                  <li><a href="#" class="dropdown-item" @click="changeRoute('/login')">Night Mode</a></li>
+                </ul>
             </li>
 
             <li class="nav-item">

@@ -6,6 +6,9 @@
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </button>
         </span>
+        <span>
+            <input class="form-control w-75 ms-2 d-inline-block" placeholder="Search by name" />
+        </span>
         <span class="float-end">
             <div class="dropdown mx-2">
                 <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

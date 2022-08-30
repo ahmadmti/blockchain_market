@@ -77,6 +77,11 @@ const routes = [
           name: 'user-account',
           component: () => import('../views/user/UserNFTTabs.vue')
         },
+        {
+          path: '/user/collction',                               // After Login Shows Multiple Type of list of NFT Tabs
+          name: 'user-collection',
+          component: () => import('../views/user/UserCollectionList.vue')
+        },
         
     ],
   

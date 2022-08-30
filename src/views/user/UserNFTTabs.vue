@@ -8,7 +8,7 @@
         </div>
 
         <div class="container">
-            <h3>
+            <h3 class="pt-3">
                 AwaisJavaid93
             </h3>
             <div class="my-2">
@@ -20,8 +20,12 @@
                 <span class="fw-bold text-muted">
                     Joined August 2022
                 </span>
+                <span class="float-end">
+                    <SocialLink :social_links="social_links" />
+                </span>
             </div>
-            
+
+            <NFTSetGridFilter />
             <NFTTabsListing />
 
         </div>
@@ -30,8 +34,29 @@
 </template>
 <script>
 import NFTTabsListing from '@/components/nft/NFTTabsListing.vue';
+import NFTSetGridFilter from '@/components/nft/NFTSetGridFilter.vue';
+import SocialLink from '@/components/social/SocialLink.vue';
+
 export default {
     name : 'UserNFTTabs',
+    data() {
+        return {
+            social_links: [
+                {
+                    link: "google.com",
+                    icon: "fa fa-twitter"
+                },
+                {
+                    link: "google.com",
+                    icon: "fa fa-facebook"
+                },
+                {
+                    link: "google.com",
+                    icon: "fa fa-instagram"
+                }
+            ],
+        }
+    },
     methods: {
         copyText(textToCopy)
         {
@@ -45,7 +70,7 @@ export default {
             tmpTextField.remove()
         }
     },
-    components : { NFTTabsListing }
+    components : { NFTTabsListing, NFTSetGridFilter, SocialLink }
 }
 </script>
 <style scoped>
