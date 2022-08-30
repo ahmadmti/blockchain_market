@@ -1,0 +1,45 @@
+
+body {
+    font-family: 'Open Sans';
+}
+
+.text-blue {
+    color: rgb(32, 129, 226) ;
+    font-weight: bold ;
+    text-decoration: none;
+}
+
+.section-bg-color {
+    background-color : rgba(243, 251, 254 , 1) ;
+}
+
+.card-shadow:hover
+{
+    -webkit-box-shadow: -2px 4px 15px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -2px 4px 15px 0px rgba(0,0,0,0.75);
+    box-shadow: -2px 4px 15px 0px rgba(0,0,0,0.75);   
+    border-radius: 5px;
+}
+
+.jade-blue {
+    background-color: #007aff ;
+}
+
+/* Footer Blue Color */
+.dark-blue { 
+    background-color: rgb(24, 104, 183) ;
+}
+
+.discover-container {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+.hide-content {
+    overflow: hidden;
+    width:100px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
