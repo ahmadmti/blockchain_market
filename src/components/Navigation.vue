@@ -44,7 +44,7 @@
 
           <ul
             class="navbar-nav ms-auto mb-2 mb-lg-0 navigation-bar"
-            style="--bs-scroll-height: 100px;"
+            style="--bs-scroll-height: 100px"
           >
             <li class="nav-item dropdown">
               <a
@@ -56,11 +56,14 @@
               >Explore</a>
               <ul class="dropdown-menu">
                 <li>
-                  <button @click="changeRoute('/nft-list')" class="dropdown-item border-bottom py-2"> <i class="fa fa-paint-brush" aria-hidden="true"></i> All NFT's </button>
+                  <router-link to="/nft-list" class="dropdown-item border-bottom py-2">All NFT</router-link>
                 </li>
                 <li v-for="explore in explores" :key="explore">
-                  <button @click="changeRoute('/category/'+explore.link)" class="dropdown-item border-bottom py-2"> <i :class="explore.icon" aria-hidden="true"></i> {{ explore.title }} </button>
-
+                  <!-- <button @click="changeRoute('/category/'+explore.link)" class="dropdown-item border-bottom py-2"> <i :class="explore.icon" aria-hidden="true"></i> {{ explore.title }} </button> -->
+                  <router-link
+                    :to="'/category/' + explore.link"
+                    class="dropdown-item border-bottom py-2"
+                  >{{ explore.title }}</router-link>
                 </li>
               </ul>
             </li>
@@ -75,7 +78,10 @@
               >Stat</a>
               <ul class="dropdown-menu">
                 <li v-for="rank in ranks" :key="rank">
-                  <a class="dropdown-item border-bottom py-2" href="#" @click="changeRoute('/'+rank.link)">{{ rank.title }}</a>
+                  <router-link
+                    :to="'/' + rank.link"
+                    class="dropdown-item border-bottom py-2"
+                  >{{ rank.title }}</router-link>
                 </li>
               </ul>
             </li>
@@ -90,11 +96,10 @@
               >Resources</a>
               <ul class="dropdown-menu">
                 <li v-for="resource in resources" :key="resource.link">
-                  <a
-                    class="dropdown-item py-2 border-bottom"
-                    href="#"
-                    @click="changeRoute('/'+ resource.link)"
-                  >{{ resource.title }}</a>
+                  <router-link
+                    :to="'/' + resource.link"
+                    class="dropdown-item border-bottom py-2"
+                  >{{ resource.title }}</router-link>
                 </li>
                 <li>
                   <hr class="dropdown-divider" />
@@ -114,19 +119,24 @@
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Create
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a href="#" class="dropdown-item" @click="changeRoute('/login')">Profile</a></li>
-                  <li><a href="#" class="dropdown-item" @click="changeRoute('/user/account')">Favorite</a></li>
-                  <li><a href="#" class="dropdown-item" @click="changeRoute('/user/collction')">My Collection</a></li>
-                  <li><a href="#" class="dropdown-item" @click="changeRoute('/login')">Setting</a></li>
-                  <li><a href="#" class="dropdown-item" @click="changeRoute('/login')">Logout</a></li>
-                  <li><a href="#" class="dropdown-item" @click="changeRoute('/login')">Night Mode</a></li>
-                </ul>
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >More</a>
+              <ul class="dropdown-menu">
+                <li v-for="more_link in more_links" :key="more_link">
+                    <router-link :to="'/' + more_link.link" class="dropdown-item border-bottom py-2">
+                        {{ more_link.title }}
+                    </router-link>
+                </li>
+              </ul>
             </li>
-
+            <li class="nav-item">
+              <a class="nav-link" href="#" @click="changeRoute('/nft/create')">Create</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="#">
                 <i class="fa fa-user-circle-o" aria-hidden="true"></i>
@@ -138,14 +148,14 @@
     </nav>
     <router-view />
     <!-- Footer  -->
-      <Footer />
+    <Footer />
     <!-- End Footer -->
   </div>
 </template>
 
 <script>
-import Footer from './Footer.vue';
-import RouteMixin from '@/mixin/RouteMixin';
+import Footer from "./Footer.vue";
+import RouteMixin from "@/mixin/RouteMixin";
 export default {
   name: "HelloWorld",
   data() {
@@ -180,11 +190,10 @@ export default {
         },
         {
           title: "Activity",
-          link: "activity",
+          link: "activity"
         }
       ],
       resources: [
-        
         {
           title: "Partners",
           link: "partners"
@@ -231,11 +240,37 @@ export default {
           title: "fa fa-youtube-play",
           link: "youtube"
         }
+      ],
+      more_links : [
+        {
+            link : 'user/account',
+            title : 'Profile'
+        },
+        {
+            link : 'user/account',
+            title : 'Favorite'
+        },
+        {
+            link : 'user/collection',
+            title : 'My Collection'
+        },
+        {
+            link : 'login',
+            title : 'Setting'
+        },
+        {
+            link : 'login',
+            title : 'Logout'
+        },
+        {
+            link : 'login',
+            title : 'Night Mode'
+        },
       ]
     };
   },
-  components : { Footer },
-  mixins : [RouteMixin ]
+  components: { Footer },
+  mixins: [RouteMixin]
 };
 </script>
 

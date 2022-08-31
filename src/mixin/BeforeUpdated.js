@@ -11,7 +11,7 @@ export default {
                 if (sec < 60) {
                     this.time = sec + ' sec'
                 } else if (sec > 60) {
-                    let newsec = sec - 60 ;
+                    let newsec = sec - Math.floor(sec / 60) * 60 ;
                     this.time = Math.floor(sec / 60) + ' min ' + newsec + 's' ;
                 }
             }, 1000);

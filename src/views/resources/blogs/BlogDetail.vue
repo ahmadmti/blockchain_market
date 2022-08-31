@@ -86,9 +86,3 @@ export default {
     components : { BlogsCard }
 }
 </script>
-<style>
-    .ps-15
-    {
-        padding-left: 15rem !important;
-    }
-</style>

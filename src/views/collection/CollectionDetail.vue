@@ -83,7 +83,7 @@
                 </div>
                 <div class="col-md-9">
                     <NFTSetGridFilterCollection />
-                    <LiveTimer />
+                    Update {{ time  }} ago
                     <GetNFTListByCollection :items="items" />
                 </div>
             </div>
@@ -108,7 +108,7 @@ import SocialLink from "@/components/social/SocialLink.vue";
 import Specfication from "@/components/collection/Specfication.vue";
 import NFTSetGridFilterCollection from "@/components/collection/NFTSetGridFilterCollection.vue";
 import LeftFilterCollection from "@/components/collection/LeftFilterCollection.vue";
-import LiveTimer from "@/components/nft/LiveTimer.vue";
+import BeforeUpdated from '@/mixin/BeforeUpdated';
 import GetNFTListByCollection from "@/components/nft/GetNFTListByCollection.vue";
 import LeftSideBar from '@/components/activity/LeftSidebar.vue';
 import SaleHistiryBySpecficCollection from '@/components/collection/SaleHistiryBySpecficCollection.vue';
@@ -198,11 +198,11 @@ export default {
     Specfication,
     LeftFilterCollection,
     NFTSetGridFilterCollection,
-    LiveTimer,
     GetNFTListByCollection,
     LeftSideBar,
     SaleHistiryBySpecficCollection
-  }
+  },
+  mixins : [ BeforeUpdated ]
 };
 </script>
 <style scoped>

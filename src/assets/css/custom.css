@@ -43,3 +43,10 @@ body {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
+.ps-15 {
+    padding-left: 15rem !important;
+}
+
+.fs-12 {
+    font-size: 12px ;
+}

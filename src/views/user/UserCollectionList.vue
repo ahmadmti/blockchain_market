@@ -8,7 +8,7 @@
                 Create, curate, and manage collections of unique NFTs to share and sell.
             </p>
             <p>
-                <button class="btn btn-primary mx-2">
+                <button class="btn btn-primary mx-2" @click="changeRoute('/create/collection')">
                     Create Collection 
                 </button>
                 <button class="btn btn-secondary">
@@ -22,6 +22,7 @@
 </template>
 <script>
 import CollectionGridList from '@/components/collection/CollectionGridList.vue';
+import RouteMixin from '@/mixin/RouteMixin';
 export default {
     name : 'UserCollectionList',
     data() {
@@ -86,6 +87,7 @@ export default {
             ]
         }
     },
-    components : { CollectionGridList }
+    components : { CollectionGridList },
+    mixins : [ RouteMixin ]
 }
 </script>
