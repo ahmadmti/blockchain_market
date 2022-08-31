@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div class="col-md-4 mb-4" v-for="blog in blogs" :key="blog">  
+        <div class="col-md-4" v-for="blog in blogs" :key="blog">  
             <a href="#" @click="changeRoute('/blog/'+ spaceReplace)" class="text-decoration-none">
                 <div class="card">
                     <div>

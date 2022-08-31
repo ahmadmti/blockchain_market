@@ -135,12 +135,14 @@
               </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" @click="changeRoute('/nft/create')">Create</a>
+                <router-link :to="'/nft/create'" class="nav-link">
+                    Create
+                </router-link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
-              </a>
+                <router-link :to="'#'" class="nav-link">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                </router-link>
             </li>
           </ul>
         </div>

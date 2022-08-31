@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container">
+        <div class="container my-5">
             <BlogsCard :blogs="blogs" />
         </div>
     </div>
