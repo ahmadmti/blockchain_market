@@ -2,7 +2,7 @@
     <div>
         <div class="row">
             <div class="col-md-4 my-2" v-for="collection in collections" :key="collection"> 
-                <a href="#" @click="changeRoute('/chain/eth-id/id')" class="text-decoration-none">
+                <router-link to="/chain/eth-id/id" class="text-decoration-none">
                     <div class="card bg-dark text-white border-0">
                         <img 
                         :src="collection.image"
@@ -13,7 +13,7 @@
                             <p class="card-text">{{ collection.text }}</p>
                         </div>
                     </div>
-                </a>
+                </router-link>
             </div>
         </div>
     </div>

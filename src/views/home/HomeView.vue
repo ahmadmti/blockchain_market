@@ -11,14 +11,15 @@
               <h4 class="mb-4">
                   OpenSea is the world's first and <br /> largest NFT marketplace
               </h4>
-              <button @click="changeRoute('/category/all-nft')" type="button" class="btn btn-primary py-2 px-4 me-3">Explore</button>
-              <button
-                type="button"
-                class="btn bg-white btn-white text-primary border border-light py-2 px-4"
-              >Create</button>
+              <router-link to="category/all-nft" class="btn btn-primary py-2 px-4 me-3">
+                Explore
+              </router-link> 
+              <router-link to="category/all-nft" class="btn bg-white btn-white text-primary border border-light py-2 px-4">
+                Create
+              </router-link>
             </div>
             <div class="offset-md-1 col-md-5">
-              <div class="card" style="width: 100% ; float:right;">
+              <div class="card w-100 float-end">
                 <img
                   src="https://storage.googleapis.com/opensea-prod.appspot.com/files/black-future-collection-long-neckie-adira-by-nyla-c42aa3.gif"
                   class="rounded"

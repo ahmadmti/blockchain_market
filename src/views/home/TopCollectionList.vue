@@ -4,7 +4,9 @@
 
             <div class="col-md-4">
                 <div class="row border-bottom nft-list-items rounded" v-for="(collection, key, index) in colllections" :key="index">
-                    <a href="#" @click="changeRoute('/collection/collect')" class="text-decoration-none text-muted"> 
+                    <!-- <a href="#" @click="changeRoute('/collection/collect')" class="text-decoration-none text-muted">  -->
+                    <router-link :to="'/collection/'+collection.title" class="text-decoration-none text-muted">
+                    
                         <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
                             <div class="col-md-1">
             
@@ -27,7 +29,7 @@
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </router-link>
                 </div>
             </div>
 

@@ -1,7 +1,8 @@
 <template>
     <div class="row my-2">
         <div class="col-md-4 mb-3" v-for="item in lists" :key="item.title">
-            <a href="#" @click="changeRoute('/chain/eth-id/id')" class="text-decoration-none">
+            <!-- <a href="#" @click="changeRoute('/chain/eth-id/id')" class="text-decoration-none"> -->
+            <router-link to="/chain/eth-id/id" class="text-decoration-none">
                 <div class="card">
                     <img :src="item.url" class="card-img-top" alt="apes">
                     <div class="card-body">
@@ -11,19 +12,18 @@
                         <br />
                         <a href="#" class="btn btn-primary">Buy Now </a>
                 </div>
-            </a>
+            </router-link>
+
         </div>
     </div>
 </template>
 <script>
-import RouteMixin from '@/mixin/RouteMixin';
 export default {
     name : 'NFTGridList',
     props : {
         lists : {
             type : Array
         }
-    },
-    mixins : [ RouteMixin ]
+    }
 }
 </script>
