@@ -1,7 +1,9 @@
 <template>
     <div class="row">
         <div class="col-md-4" v-for="blog in blogs" :key="blog">  
-            <a href="#" @click="changeRoute('/blog/'+ spaceReplace)" class="text-decoration-none">
+            <!-- <a href="#" @click="changeRoute('/blog/detail/'+ spaceReplace)" class="text-decoration-none"> -->
+            <router-link :to="'detail/'+ spaceReplace" class="text-decoration-none">
+
                 <div class="card">
                     <div>
                         <img class="card-img-top" :src="blog.url" alt="">
@@ -23,7 +25,7 @@
                         </p>
                     </div>
                 </div>
-            </a>
+            </router-link>
         </div>
     </div>
 </template>

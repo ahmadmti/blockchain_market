@@ -206,7 +206,7 @@ export default {
         },
         {
           title: "Blogs",
-          link: "blogs"
+          link: "blog/list"
         },
         {
           title: "NewsLatter",
