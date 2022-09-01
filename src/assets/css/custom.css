@@ -54,3 +54,10 @@ body {
 .ms-8 {
     margin-left : 8rem;
 }
+.ms-15 {
+    margin-left: 15rem;
+}
+
+.ps-10 {
+    padding-left :10rem ;
+}

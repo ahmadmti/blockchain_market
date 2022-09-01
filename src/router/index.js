@@ -57,16 +57,6 @@ const routes = [
                 name: 'tax',
                 component: () => import('../views/resources/tax/Tax.vue')
             },
-            // {
-            //     path: '/blogs',                               // Resources link Partners Tab
-            //     name: 'blogs',
-            //     component: () => import('../views/resources/blogs/Blogs.vue')
-            // },
-            // {
-            //     path: '/blog/:title',                               // Resources link Partners Tab
-            //     name: 'blogs-detail',
-            //     component: () => import('../views/resources/blogs/BlogDetail.vue')
-            // },
             {
                 path: '/news-latter',                               // Resources link Partners Tab
                 name: 'news-latter',
@@ -88,9 +78,19 @@ const routes = [
                 component: () => import('../views/user/UserCollectionList.vue')
             },
             {
-                path: '/create/collection',                               // Create Collection only for Logged user
-                name: 'create-collection',
-                component: () => import('../views/collection/CreateCollection.vue')
+                path: '/help',                               // Create Collection only for Logged user
+                name: 'help',
+                component: () => import('../views/resources/help/HelpView.vue')
+            },
+            {
+                path: '/help/:title',                               // Create Collection only for Logged user
+                name: 'help-faq',
+                component: () => import('../views/resources/help/HelpFAQ.vue')
+            },
+            {
+                path: '/article/:title',                               // Create Collection only for Logged user
+                name: 'help-article',
+                component: () => import('../views/resources/help/Article.vue')
             },
         
         ],

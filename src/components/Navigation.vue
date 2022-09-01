@@ -216,14 +216,6 @@ export default {
           title: "Help Center",
           link: "help"
         },
-        {
-          title: "Platform Status",
-          link: "help"
-        },
-        {
-          title: "Docs",
-          link: "help"
-        }
       ],
       social_links: [
         {
