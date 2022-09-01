@@ -3,7 +3,7 @@
         <div class="container border bg-white rounded">
             <div class="row">
                 <h1 class="fw-bold ps-15 pt-5">
-                    An Update on Verification and <br /> Copymint Prevention
+                    {{ $route.params.title.replaceAll("-"," ") }}
                 </h1>
                 <div class="ps-15">
                     <span class="mx-2">

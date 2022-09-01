@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="col-md-4" v-for="blog in blogs" :key="blog">  
-           <router-link :to="'detail/'+ spaceReplace" class="text-decoration-none">
+           <router-link :to="'/blog/detail/'+ blog.title.replace(/[^A-Z0-9]/ig, '-')" class="text-decoration-none">
                 <div class="card">
                     <div>
                         <img class="card-img-top" :src="blog.url" alt="">
@@ -28,21 +28,12 @@
     </div>
 </template>
 <script>
-import RouteMixin from '@/mixin/RouteMixin';
 export default {
     name : 'BlogsCard',
-     computed: {
-        // a computed getter
-        spaceReplace: function () {
-        // `this` points to the vm instance
-            return this.blogs[0].title.replace(/[^A-Z0-9]/ig, "-");
-        }
-    },
     props :{
         blogs : {
             type : Array
         }
-    },
-    mixins : [ RouteMixin ]
+    }
 }
 </script>
