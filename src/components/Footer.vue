@@ -13,7 +13,7 @@
                     </p>
                     <form>
                         <div class="mb-3">
-                            <input type="email" placeholder="your email address" class="form-control text-white w-75 d-inline-block" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <input type="email" placeholder="your email address" class="form-control w-75 d-inline-block" id="exampleInputEmail1" aria-describedby="emailHelp">
                             <button type="button" class="btn btn-primary py-2 px-4 m-1">Sign Up</button>
                         </div>
                     </form>

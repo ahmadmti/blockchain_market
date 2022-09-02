@@ -11,10 +11,10 @@
               <h4 class="mb-4">
                   OpenSea is the world's first and <br /> largest NFT marketplace
               </h4>
-              <router-link to="category/all-nft" class="btn btn-primary py-2 px-4 me-3">
+              <router-link to="/category/all-nft" class="btn btn-primary py-2 px-4 me-3">
                 Explore
               </router-link> 
-              <router-link to="category/all-nft" class="btn bg-white btn-white text-primary border border-light py-2 px-4">
+              <router-link to="/nft/create" class="btn bg-white btn-white text-primary border border-light py-2 px-4">
                 Create
               </router-link>
             </div>

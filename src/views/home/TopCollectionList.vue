@@ -3,13 +3,10 @@
         <div class="row">
 
             <div class="col-md-4">
-                <div class="row border-bottom nft-list-items rounded" v-for="(collection, key, index) in colllections" :key="index">
-                    <!-- <a href="#" @click="changeRoute('/collection/collect')" class="text-decoration-none text-muted">  -->
+                <div class="row border-bottom nft-list-items rounded p-2" v-for="(collection, key, index) in colllections" :key="index">
                     <router-link :to="'/collection/'+collection.title" class="text-decoration-none text-muted">
-                    
                         <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
                             <div class="col-md-1">
-            
                                 <a class="btn btn-primary position-relative  border-pill mt-2 border-0 section-bg-color">
                                     <img :src="collection.url" height="50" width="50" class="rounded-circle" />
                                     <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
@@ -32,13 +29,37 @@
                     </router-link>
                 </div>
             </div>
-
             <div class="col-md-4">
-                <div class="row border-bottom nft-list-items rounded" v-for="(collection, key, index) in colllections" :key="index">
-                    <a href="#" @click="changeRoute('/collection/collect')" class="text-decoration-none text-muted"> 
+                <div class="row border-bottom nft-list-items rounded p-2" v-for="(collection, key, index) in colllections" :key="index">
+                    <router-link :to="'/collection/'+collection.title" class="text-decoration-none text-muted">
                         <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
                             <div class="col-md-1">
-            
+                                <a class="btn btn-primary position-relative  border-pill mt-2 border-0 section-bg-color">
+                                    <img :src="collection.url" height="50" width="50" class="rounded-circle" />
+                                    <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                                        <span class="visually-hidden">New alerts</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <div class="col-md-8">
+                                <p class="text-dark fw-bold"> {{ collection.title }} </p>
+                                <p class="text-muted"> Floor Price </p>
+                            </div>
+                            <div class="col-md-3">
+                                <div>
+                                    <p class="text-success fw-bold"> {{ collection.percent }} </p>
+                                    <p class="text-muted fw-bold"> {{ collection.price }} Eth </p>
+                                </div>
+                            </div>
+                        </div>
+                    </router-link>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row border-bottom nft-list-items rounded p-2" v-for="(collection, key, index) in colllections" :key="index">
+                    <router-link :to="'/collection/'+collection.title" class="text-decoration-none text-muted">
+                        <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
+                            <div class="col-md-1">
                                 <a class="btn btn-primary position-relative  border-pill mt-2 border-0 section-bg-color">
                                     <img :src="collection.url" height="50" width="50" class="rounded-circle" />
                                     <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
@@ -58,46 +79,14 @@
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </router-link>
                 </div>
             </div>
-
-            <div class="col-md-4">
-                <div class="row border-bottom nft-list-items rounded" v-for="(collection, key, index) in colllections" :key="index">
-                    <a href="#" @click="changeRoute('/collection/collect')" class="text-decoration-none text-muted"> 
-                        <div class="row row-cols-2 row-cols-lg-3 g-2 g-lg-3">
-                            <div class="col-md-1">
-            
-                                <a class="btn btn-primary position-relative  border-pill mt-2 border-0 section-bg-color">
-                                    <img :src="collection.url" height="50" width="50" class="rounded-circle" />
-                                    <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-                                        <span class="visually-hidden">New alerts</span>
-                                    </span>
-                                </a>
-                            </div>
-                            <div class="col-md-8">
-                                <p class="text-dark fw-bold"> {{ collection.title }} </p>
-                                <p class="text-muted"> Floor Price </p>
-                            </div>
-                            <div class="col-md-3">
-                                <div>
-                                    <p class="text-success fw-bold"> {{ collection.percent }} </p>
-                                    <p class="text-muted fw-bold"> {{ collection.price }} Eth </p>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            
-
         </div>
     </div>    
 </template>
 <script>
-import RouteMixin from '@/mixin/RouteMixin';
+
 export default {
     name : 'TopCollectionList',
     data() {
@@ -140,8 +129,7 @@ export default {
                 },        
             ]        
         }
-    },
-    mixins : [ RouteMixin ]
+    }
 }
 </script>
 <style scoped>

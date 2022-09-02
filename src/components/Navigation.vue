@@ -105,7 +105,7 @@
                   <hr class="dropdown-divider" />
                 </li>
                 <li>
-                  <a
+                  <!-- <a
                     class="nav-link d-inline"
                     v-for="social in social_links"
                     :key="social"
@@ -113,7 +113,15 @@
                     @click="changeRoute('/' + social.link)"
                   >
                     <i :class="social.title" aria-hidden="true"></i>
-                  </a>
+                  </a> -->
+                  <div class="row">
+                    <router-link
+                    :to="'/' + social.link"
+                    v-for="social in social_links"
+                    :key="social"
+                    class="col-md-2 mx-1 text-muted"
+                    ><i :class="social.title" aria-hidden="true"></i></router-link>
+                  </div>
                 </li>
               </ul>
             </li>
