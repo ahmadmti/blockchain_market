@@ -7,7 +7,7 @@
 
         <div class="container-fluid">
             <div class="container-fluid discover-container">
-                <div class="row">
+                <div class="row w-100">
                     <div class="col-md-3">
                         <NFTFiler />
                     </div>

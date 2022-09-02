@@ -2,24 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 p-5">
-                <ul class="list-group">
-                    
-                    <li class="list-group-item" v-for="faq in faqs" :key="faq">
-                        <div class="card border-0">
-                                <p>
-                                    <button class="btn btn-primary bg-transparent text-dark border-0" type="button" data-bs-toggle="collapse" :data-bs-target="'#'+faq.target.replaceAll(' ', '_').replace(/[^a-zA-Z ]/g, '')" aria-expanded="false" :aria-controls="faq.target.replaceAll(' ', '_').replace(/[^a-zA-Z ]/g, '')">
-                                        {{ faq.title}}
-                                    </button>
-                                </p>
-                                <div class="collapse" :id="faq.target.replaceAll(' ', '_').replace(/[^a-zA-Z ]/g, '')">
-                                    <div class="card card-body" v-html="faq.content">
-                                    
-                                    </div>
-                                </div>
-                        </div>
-                    </li>
-
-                </ul>
+                <Faqs :faqs="faqs" />
             </div>
             <div class="py-5 float-end">
                 <SocialLink :social_links="social_links" />
@@ -29,6 +12,7 @@
 </template>
 <script>
 import SocialLink from '@/components/social/SocialLink.vue';
+import Faqs from  '@/components/faq/Faqs.vue';
 
 export default {
     name  : 'HelpFAQ',
@@ -37,13 +21,13 @@ export default {
             faqs : [
                 {
                     target : 'How can I contact OpenSea(s)23232',
-                    title : 'How can I contact OpenSea?',
+                    title : '1How can I contact OpenSea?',
                     content : `You can buy ETH, the digital currency that fuels transactions on the Ethereum blockchain, from a digital currency exchange like Coinbase. You'll need ETH to "mint" an NFT, purchase an NFT, and for gas fees to complete transactions. Gas fees are a bit of a tricky concept, but we simplify the basics in our What are gas fees? help guide.
                     Now that you have ETH, let's get a crypto wallet.`
                 },
                 {
                     target : 'How can I contact Open',
-                    title : 'How can I contact OpenSea?',
+                    title : '2How can I contact OpenSea?',
                     content : `You can buy ETH, the digital currency that fuels transactions on the Ethereum blockchain, from a digital currency exchange like Coinbase. You'll need ETH to "mint" an NFT, purchase an NFT, and for gas fees to complete transactions. Gas fees are a bit of a tricky concept, but we simplify the basics in our What are gas fees? help guide.
                     Now that you have ETH, let's get a crypto wallet.`
                 },
@@ -83,7 +67,7 @@ export default {
             ],
         }
     },
-    components : { SocialLink }
+    components : { SocialLink, Faqs }
 
 }
 </script>

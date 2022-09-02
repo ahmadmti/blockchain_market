@@ -38,6 +38,11 @@ const routes = [
                 component: () => import('../views/collection/CollectionDetail.vue')
             },
             {
+                path: '/create/collection',                               // get all collection of specfic type of specfic 
+                name: 'collection-create',
+                component: () => import('../views/collection/CreateCollection.vue')
+            },
+            {
                 path: '/ranking',                               // Get All Ranking NFT in tabuler Form
                 name: 'ranking',
                 component: () => import('../views/stat/Ranking.vue')
@@ -91,6 +96,11 @@ const routes = [
                 path: '/article/:title',                               // Create Collection only for Logged user
                 name: 'help-article',
                 component: () => import('../views/resources/help/Article.vue')
+            },
+            {
+                path: '/setting',                               // View Setting Page
+                name: 'setting',
+                component: () => import('../views/settings/SettingView.vue')
             },
         
         ],

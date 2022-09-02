@@ -249,7 +249,7 @@ export default {
             title : 'My Collection'
         },
         {
-            link : 'login',
+            link : 'setting',
             title : 'Setting'
         },
         {
