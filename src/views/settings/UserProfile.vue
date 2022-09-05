@@ -16,11 +16,11 @@
             <li class="list-group-item border-0">
                 <label for="exampleFormControlInput1" class="form-label">Social Connections</label> 
                 <p>
-                <button class="btn btn-primary ">
+                <button class="btn btn-primary m-1">
                     Connect Twitter <i class="fa fa-twitter-square" aria-hidden="true"></i>
                 </button>
-                <button class="btn btn-primary ms-2">
-                    Connect Facebook <i class="fa fa-facebook" aria-hidden="true"></i> 
+                <button class="btn btn-primary m-1">
+                    Connect Facebook <i class="fa fa-facebook-official" aria-hidden="true"></i>
                 </button>
                 </p>
             </li>
