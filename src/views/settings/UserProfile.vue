@@ -7,7 +7,7 @@
             </li>
             <li class="list-group-item border-0">
                 <label for="exampleFormControlInput1" class="form-label">Bio</label>
-                <textarea class="form-control" rows="3"></textarea>
+                <textarea class="form-control" rows="3" placeholder="Tell the world your story!"></textarea>
             </li>
             <li class="list-group-item border-0">
                 <label for="exampleFormControlInput1" class="form-label">Email Address</label>
