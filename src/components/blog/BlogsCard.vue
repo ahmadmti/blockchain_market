@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-4" v-for="blog in blogs" :key="blog">  
            <router-link :to="'/blog/detail/'+ blog.title.replace(/[^A-Z0-9]/ig, '-')" class="text-decoration-none">
-                <div class="card">
+                <div class="card my-2">
                     <div>
                         <img class="card-img-top" :src="blog.url" alt="">
                     </div>  

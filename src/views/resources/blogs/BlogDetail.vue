@@ -1,11 +1,11 @@
 <template>
-    <div class="section-bg-color py-5">
+    <div class="section-bg-color py-5 ">
         <div class="container border bg-white rounded">
-            <div class="row">
-                <h1 class="fw-bold ps-15 pt-5">
+            <div class="row ">
+                <h1 class="fw-bold pt-5 w-75 mx-auto d-block">
                     {{ $route.params.title.replaceAll("-"," ") }}
                 </h1>
-                <div class="ps-15">
+                <div class="w-75 mx-auto d-block">
                     <span class="mx-2">
                         August 9, 2022
                     </span>
@@ -18,15 +18,15 @@
                         </button>
                     </span>
                 </div>
-                <div class="ps-15 w-75">
+                <div class="w-75 mx-auto d-block">
                     <div class="card">
-                        <img src="https://blogmigration.kinsta.cloud/wp-content/uploads/2022/05/00Lighthouse-Header-1536x1024.jpg" class="card-img-top">
+                        <img src="https://blogmigration.kinsta.cloud/wp-content/uploads/2022/05/00Lighthouse-Header-1536x1024.jpg" class="img-fluid">
                     </div>
                     <div class="card-body lh-lg py-5" v-html="description"></div> 
                     <hr />
                     <div class="card border-0">
                         <figure>
-                            <img class="rounded-circle" src="https://secure.gravatar.com/avatar/496594bff5119285ffe5172018394d24?s=96&d=mm&r=g" alt="">
+                            <img class="rounded-circle img-fluid" src="https://secure.gravatar.com/avatar/496594bff5119285ffe5172018394d24?s=96&d=mm&r=g" alt="">
                         </figure>
                         <h4 class="text-muted pb-3">
                             Anne Fauvre-Willis
