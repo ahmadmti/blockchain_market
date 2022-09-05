@@ -15,7 +15,7 @@
                 </div>
                 <div class="col-md-6">
                     <figure>
-                        <img src="https://static.opensea.io/careers/partnerships/marketplace-illustration.svg" alt="marketplace-illustration">
+                        <img src="https://static.opensea.io/careers/partnerships/marketplace-illustration.svg" class="img-fluid" alt="marketplace-illustration">
                     </figure>
                 </div>
             </div>
@@ -57,7 +57,7 @@
                     Compared with other NFT marketplaces, we have lowest fees in the space allowing you to spend less with your created collection
                     </p>
                 </div>
-                <div class="col-md-4 text-center m-15">
+                <div class="col-md-4 text-center">
                     <img src="https://static.opensea.io/about/icon-money.svg" class="my-2" height="30" width="30" alt="">
                     <h3>
                         Reach Millions
@@ -108,7 +108,7 @@
                     </p>
                 </div>
                 <div class="col-md-4">
-                    <img src="https://static.opensea.io/careers/katie-haun.png" alt="" class="rounded">
+                    <img src="https://static.opensea.io/careers/katie-haun.png" alt="" class="rounded img-fluid">
                 </div>
             </div>
         </div>
