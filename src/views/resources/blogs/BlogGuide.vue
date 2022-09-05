@@ -2,7 +2,7 @@
     <div>
         <div class="container my-5">
             <h2 class="text-center mb-5 fw-bold">
-                Guide
+                {{ $route.params.guide }}
             </h2>
             <BlogsCard :blogs="blogs" />
         </div>

@@ -9,141 +9,120 @@ const routes = [
         children: [
             {
                 path: '/',
-                name: 'home',                                           // home or first page is show there
+                name: 'home',                                           // First Page Like Home Page 
                 component: HomeView
             },
             {
                 path: '/nft-list',
-                name: 'nft-list',                                       // get the list of all NFT
+                name: 'nft-list',                                       // Show the List Of NFT
                 component: () => import('../views/nft/NFTList.vue')
             },
             {
                 path: '/nft/create',
-                name: 'nft-create',                                       // NFT Create
+                name: 'nft-create',                                     // NFT Create Page
                 component: () => import('../views/nft/NFTCreate.vue')
             },
             {
-                path: '/chain/eth-id/id',                               // get the detail of NFT
-                name: 'nft-detail',
+                path: '/chain/eth-id/id',
+                name: 'nft-detail',                                     // NFT Detail
                 component: () => import('../views/nft/NFTDetail.vue')
             },
             {
-                path: '/category/:category',                               // get all collection of specfic type of specfic 
-                name: 'collection',
+                path: '/category/:category',
+                name: 'collection',                                     // Get Specfic Collection Type
                 component: () => import('../views/collection/CollectionLists.vue')
             },
             {
-                path: '/collection/:title',                               // get all collection of specfic type of specfic 
-                name: 'collection-detail',
+                path: '/collection/:title', 
+                name: 'collection-detail',                              // Get The Detail Of Specfic Collection Type
                 component: () => import('../views/collection/CollectionDetail.vue')
             },
             {
-                path: '/create/collection',                               // get all collection of specfic type of specfic 
-                name: 'collection-create',
+                path: '/create/collection', 
+                name: 'collection-create',                              // Create Collection Form
                 component: () => import('../views/collection/CreateCollection.vue')
             },
             {
-                path: '/ranking',                               // Get All Ranking NFT in tabuler Form
-                name: 'ranking',
+                path: '/ranking',  
+                name: 'ranking',                                        // Ranking Page Navbar
                 component: () => import('../views/stat/Ranking.vue')
             },
             {
-                path: '/activity',                               // Get All Activity
-                name: 'activity',
+                path: '/activity',
+                name: 'activity',                                       // Activity Page Navbar
                 component: () => import('../views/stat/Activity.vue')
             },
             {
-                path: '/partners',                               // Resources link Partners Tab
-                name: 'patners',
+                path: '/partners',
+                name: 'patners',                                        // Partner Page Navbar
                 component: () => import('../views/resources/partners/Partners.vue')
             },
             {
-                path: '/tax',                               // Resources link Tax Tab
-                name: 'tax',
+                path: '/tax',                            
+                name: 'tax',                                            // Tax Page Navbar
                 component: () => import('../views/resources/tax/Tax.vue')
             },
             {
-                path: '/news-latter',                               // Resources link Partners Tab
-                name: 'news-latter',
+                path: '/news-latter', 
+                name: 'news-latter',                                    // NewsLatter Navbar
                 component: () => import('../views/resources/news-latter/NewsLatter.vue')
             },
             {
-                path: '/login',                               // Login
-                name: 'login',
+                path: '/login',
+                name: 'login',                                          // Login Page
                 component: () => import('../views/user/Login.vue')
             },
             {
-                path: '/user/account',                               // After Login Shows Multiple Type of list of NFT Tabs
-                name: 'user-account',
+                path: '/user/account',  
+                name: 'user-account',                                   // User Account Show Multiple Type Of Tabs
                 component: () => import('../views/user/UserNFTTabs.vue')
             },
             {
-                path: '/user/collection',                               // After Login Shows Multiple Type of list of NFT Tabs
+                path: '/user/collection',                               // User Created Collection
                 name: 'user-collection',
                 component: () => import('../views/user/UserCollectionList.vue')
             },
             {
-                path: '/help',                               // Create Collection only for Logged user
-                name: 'help',
+                path: '/help', 
+                name: 'help',                                           // Help Page Navbar
                 component: () => import('../views/resources/help/HelpView.vue')
             },
             {
-                path: '/help/:title',                               // Create Collection only for Logged user
-                name: 'help-faq',
+                path: '/help/:title',     
+                name: 'help-faq',                                       // Get Specfic Type Of Help Type
                 component: () => import('../views/resources/help/HelpFAQ.vue')
             },
             {
-                path: '/article/:title',                               // Create Collection only for Logged user
-                name: 'help-article',
+                path: '/article/:title', 
+                name: 'help-article',                                   // Get Detail Of Specfic Article Under Help
                 component: () => import('../views/resources/help/Article.vue')
             },
             {
-                path: '/setting',                               // View Setting Page
-                name: 'setting',
+                path: '/setting', 
+                name: 'setting',                                        // Setting Module Edit Profile, Notification, Account
                 component: () => import('../views/settings/SettingView.vue')
             },
-        
         ],
   
     },
     {
         path: '/blog',
         name: 'blog-menu',
-        component: () => import('../components/BlogNavigation.vue'),
+        component: () => import('../components/BlogNavigation.vue'),    // Blog Navigation
         children: [
             {
-                path: 'list',                               // Resources link Partners Tab
-                name: 'blogs',
+                path: 'list', 
+                name: 'blogs',                                          // Blog List
                 component: () => import('../views/resources/blogs/Blogs.vue')
             },
             {
-                path: 'guide',                               // Resources link Partners Tab
-                name: 'guide',
+                path: ':guide',                                          
+                name: 'guide',                                          // Get 5 Types of Blog Enlist in Blog Navbar
                 component: () => import('../views/resources/blogs/BlogGuide.vue')
             },
             {
-                path: 'guest-post',                               // Resources link Partners Tab
-                name: 'guest-post',
-                component: () => import('../views/resources/blogs/BlogGuestPost.vue')
-            },
-            {
-                path: 'spotlight',                               // Resources link Partners Tab
-                name: 'spotlight',
-                component: () => import('../views/resources/blogs/SpotLight.vue')
-            },
-            {
-                path: 'safety',                               // Resources link Partners Tab
-                name: 'spot-light',
-                component: () => import('../views/resources/blogs/Safety&Security.vue')
-            },
-            {
-                path: 'announcements',                               // Resources link Partners Tab
-                name: 'announcements',
-                component: () => import('../views/resources/blogs/Announcements.vue')
-            },
-            {
-                path: 'detail/:title',                               // Resources link Partners Tab
-                name: 'blogs-detail',
+                path: 'detail/:title', 
+                name: 'blogs-detail',                                   // Blog Detail Page
                 component: () => import('../views/resources/blogs/BlogDetail.vue')
             },
         ],

@@ -26,7 +26,7 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-8">
             <li class="nav-item" v-for="link in links" :key="link">
               <router-link :to="'/blog/'+link.link" class="nav-link active text-secondary">
-              {{ link.title }}
+              {{ link.title }} 
               </router-link>
             </li>
           </ul>
