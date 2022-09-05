@@ -45,9 +45,10 @@
                             <b class="text-white"> Marketplace </b> 
                         </li>
                         <li class="list-group-item bg-transparent border-0" v-for="curreny in currenies" :key="curreny">
-                            <a href="#" @click="changeRoute(curreny.link)" class="text-decoration-none text-white ">
+                            <router-link :to="curreny.link" class="text-decoration-none text-white">
                                 {{ curreny.title  }}
-                            </a>
+                            </router-link>
+
                         </li>
                     </ul>
                 </div>
@@ -57,9 +58,9 @@
                             <b class="text-white"> My Account </b> 
                         </li>
                         <li class="list-group-item bg-transparent border-0" v-for="account in my_accounts" :key="account">
-                            <a href="#" @click="changeRoute(account.link)" class="text-decoration-none text-white ">
+                            <router-link :to="account.link" class="text-decoration-none text-white">
                                 {{ account.title  }}
-                            </a>
+                            </router-link>
                         </li>
                     </ul> <br />
                     <ul class="list-group">
@@ -67,9 +68,9 @@
                             <b class="text-white"> Stat </b> 
                         </li>
                         <li class="list-group-item bg-transparent border-0" v-for="stat in statics" :key="stat">
-                            <a href="#" @click="changeRoute(stat.link)" class="text-decoration-none text-white ">
+                            <router-link :to="stat.link" class="text-decoration-none text-white">
                                 {{ stat.title  }}
-                            </a>
+                            </router-link>
                         </li>
                     </ul>
 
@@ -80,9 +81,9 @@
                             <b class="text-white"> Reources </b> 
                         </li>
                          <li class="list-group-item bg-transparent border-0" v-for="resource in resources" :key="resource">
-                            <a href="#" @click="changeRoute(resource.link)" class="text-decoration-none text-white ">
+                            <router-link :to="resource.link" class="text-decoration-none text-white">
                                 {{ resource.title  }}
-                            </a>
+                            </router-link>
                         </li>
                     </ul>
                 </div>
@@ -92,9 +93,9 @@
                             <b class="text-white"> Company </b> 
                         </li>
                         <li class="list-group-item bg-transparent border-0" v-for="company in companies" :key="company">
-                            <a href="#" @click="changeRoute(company.link)" class="text-decoration-none text-white ">
+                            <router-link :to="company.link" class="text-decoration-none text-white">
                                 {{ company.title  }}
-                            </a>
+                            </router-link>
                         </li>
                     </ul>
                 </div>
@@ -171,59 +172,51 @@ export default {
             ],
             my_accounts : [
                 {
-                    link : '/google.com',
+                    link : '/setting',
                     title : 'Profile'
                 },
                 {
-                    link : '/google.com',
+                    link : '/user/account',
                     title : 'Favorite'
                 },
                 {
-                    link : '/google.com',
-                    title : 'Watchlist'
-                },
-                {
-                    link : '/google.com',
+                    link : '/user/collection',
                     title : 'My Collections'
                 },
                 {
-                    link : '/google.com',
+                    link : '/setting',
                     title : 'Setting'
                 },
             ],
             statics : [
                 {
-                    link : '/google.com',
+                    link : '/ranking',
                     title : 'Ranking'
                 },
                 {
-                    link : '/google.com',
+                    link : '/activity',
                     title : 'Activity'
                 },
             ],
             resources : [
                 {
-                    link : '/google.com',
+                    link : '/help',
                     title : 'Help Center'
                 },
                 {
-                    link : '/google.com',
-                    title : 'Platform Status'
-                },
-                {
-                    link : '/google.com',
+                    link : '/partners',
                     title : 'Partner'
                 },
                 {
-                    link : '/google.com',
+                    link : '/',
                     title : 'GAS-Fee Marketplace'
                 },
                 {
-                    link : '/google.com',
+                    link : '/tax',
                     title : 'Tax'
                 },
                 {
-                    link : '/google.com',
+                    link : '/blog/list',
                     title : 'Blogs'
                 },
             ],
