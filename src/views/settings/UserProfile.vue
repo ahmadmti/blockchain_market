@@ -3,7 +3,7 @@
         <ul class="list-group p-3">
             <li class="list-group-item border-0">
                 <label for="exampleFormControlInput1" class="form-label">Username</label>
-                <input type="email" class="form-control" placeholder="username">
+                <input type="text" class="form-control" placeholder="@username">
             </li>
             <li class="list-group-item border-0">
                 <label for="exampleFormControlInput1" class="form-label">Bio</label>
@@ -26,11 +26,11 @@
             </li>
             <li class="list-group-item border-0">
                 <label for="exampleFormControlInput1" class="form-label">Links</label>
-                <input type="email" class="form-control" placeholder="yoursite.com">
+                <input type="text" class="form-control" placeholder="yoursite.com">
             </li>
             <li class="list-group-item border-0">
                 <label for="exampleFormControlInput1" class="form-label">Wallet Address</label>
-                <input type="email" class="form-control" placeholder="0xbe3....9008f">
+                <input type="text" class="form-control" placeholder="0xbe3....9008f">
             </li>
             <li class="list-group-item border-0">
                 <button class="btn btn-primary p-2">
