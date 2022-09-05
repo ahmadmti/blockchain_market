@@ -12,7 +12,7 @@
             <div>
                 <div class="collapse" id="price_history">
                     <div class="card card-body p-2 border-0">
-                        Chart Attach Here But Later Price Chat 
+                        <LineChart />
                     </div>
                 </div>
             </div>
@@ -21,7 +21,9 @@
     </div>
 </template>
 <script>
+import LineChart from '@/views/chart/LineChart.vue';
 export default {
-    name : 'NFTPriceHisotry'
+    name : 'NFTPriceHisotry',
+    components : { LineChart }
 }
 </script>
