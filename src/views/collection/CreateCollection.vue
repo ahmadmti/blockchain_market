@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="ps-15 py-5 w-75">
+        <div class="py-5 w-75 mx-auto d-block">
             <h2>
                 Create a Collection
             </h2>

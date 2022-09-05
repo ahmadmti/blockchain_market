@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <img src="https://opensea.io/blog/wp-content/uploads/2021/07/newsletter-graphic.png" alt="">
+                    <img src="https://opensea.io/blog/wp-content/uploads/2021/07/newsletter-graphic.png" class="img-fluid" alt="">
                 </div>
             </div>
         </div>
