@@ -13,19 +13,34 @@
                 </span>
                 <br />
                 <div class="btn-group my-1" role="group" aria-label="Basic example">
-                    <a href="#" class="btn btn-primary">
-                        <i class="fa fa-facebook-official" aria-hidden="true"></i>
-                    </a>
-                    <a href="#" class="btn btn-primary">
-                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
+                    <SocialLink :social_links="social_links" />
                 </div>
             </div>
         </div>
     </div>
 </template>
 <script>
+import SocialLink from "@/components/social/SocialLink.vue";
 export default {
-    name : 'NFTAbout'
+    name : 'NFTAbout',
+    data() {
+        return {
+            social_links : [
+                {
+                    link : 'google.com',
+                    icon : 'fa fa-twitter'
+                },
+                {
+                    link : 'google.com',
+                    icon : 'fa fa-facebook'
+                },
+                {
+                    link : 'google.com',
+                    icon : 'fa fa-instagram'
+                }
+            ],
+        }
+    },
+    components : { SocialLink }
 }
 </script>
