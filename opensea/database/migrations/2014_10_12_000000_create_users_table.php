@@ -13,12 +13,22 @@ return new class extends Migration
      */
     public function up()
     {
+        /*
+            User Banner Polymorphic Table
+            User Images Polymorphic Table
+        */
+        
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('username')->nullable();
+            $table->string('bio')->nullable();
+            $table->string('link')->nullable();
+            $table->string('twitter_link')->nullable();
+            $table->string('instagram_link')->nullable();
+            $table->string('hash');
+            $table->string('email')->nullable()->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            // $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
