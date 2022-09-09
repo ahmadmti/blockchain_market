@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Web3LoginController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -14,10 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::get('/web3-login-message', 'Web3LoginController@message');
-Route::post('/web3-login-verify', 'Web3LoginController@verify');
-
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+    Route::get('/web3-login-message' , [Web3LoginController::class ,'message']);
+    Route::post('/web3-login-verify' , [Web3LoginController::class ,'varify']);
+

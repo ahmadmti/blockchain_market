@@ -6,24 +6,30 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use kornrunner\Keccak;
 use Elliptic\EC;
+use Session ;
+use App\Models\User;
+
+
 
 
 class Web3LoginController extends Controller
 {
 
-       public function message(): string
+       public function message(Request $request): string
     {
         $nonce = Str::random();
         $message = "Sign this message to confirm you own this wallet address. This action will not cost any gas fees.\n\nNonce: " . $nonce;
 
-        session()->put('sign_message', $message);
-
+        Session::put('sign_message', $message);
         return $message;
     }
 
-    public function verify(Request $request): string
+    public function varify(Request $request): string
     {
-        $result = $this->verifySignature(session()->pull('sign_message'), $request->input('signature'), $request->input('address'));
+        $sign = $request['session'];
+        $data['hash'] = $request['address'];
+        User::firstOrCreate($data  , $data ); 
+        $result = $this->verifySignature($sign , $request['signature'], $request['address']);
         // If $result is true, perform additional logic like logging the user in, or by creating an account if one doesn't exist based on the Ethereum address
         return ($result ? 'OK' : 'ERROR');
     }
