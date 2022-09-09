@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/web3-login-message', 'Web3LoginController@message');
+Route::post('/web3-login-verify', 'Web3LoginController@verify');
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
