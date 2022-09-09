@@ -2,15 +2,14 @@
   <div>
     <nav class="navbar navbar-expand-lg bg-light sticky-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#" @click="changeRoute('/')">
-          <img
+        <router-link to="/" class="navbar-brand">
+        <img
             src="https://opensea.io/static/images/logos/opensea.svg"
             width="40"
             height="40"
             alt="logo"
           />
-          <b>OpenSea</b>
-        </a>
+          <b>OpenSea</b></router-link>
         <button
           class="navbar-toggler"
           type="button"
@@ -59,7 +58,6 @@
                   <router-link to="/nft-list" class="dropdown-item border-bottom py-2">All NFT</router-link>
                 </li>
                 <li v-for="explore in explores" :key="explore">
-                  <!-- <button @click="changeRoute('/category/'+explore.link)" class="dropdown-item border-bottom py-2"> <i :class="explore.icon" aria-hidden="true"></i> {{ explore.title }} </button> -->
                   <router-link
                     :to="'/category/' + explore.link"
                     class="dropdown-item border-bottom py-2"
@@ -105,15 +103,6 @@
                   <hr class="dropdown-divider" />
                 </li>
                 <li>
-                  <!-- <a
-                    class="nav-link d-inline"
-                    v-for="social in social_links"
-                    :key="social"
-                    href="#"
-                    @click="changeRoute('/' + social.link)"
-                  >
-                    <i :class="social.title" aria-hidden="true"></i>
-                  </a> -->
                   <div class="row">
                     <router-link
                     :to="'/' + social.link"
@@ -140,6 +129,11 @@
                         {{ more_link.title }}
                     </router-link>
                 </li>
+                <li>
+                    <router-link to="#" @click="logout" class="dropdown-item border-bottom py-2">
+                        Logout
+                    </router-link>
+                </li>
               </ul>
             </li>
             <li class="nav-item">
@@ -156,6 +150,8 @@
         </div>
       </div>
     </nav>
+    <Toaster />
+
     <router-view />
     <!-- Footer  -->
     <Footer />
@@ -165,7 +161,11 @@
 
 <script>
 import Footer from "./Footer.vue";
-import RouteMixin from "@/mixin/RouteMixin";
+import Toaster from './Toaster.vue';
+import apiRoutes from '@/utils/api_routes/ApiRoutes.js'
+import axios from 'axios';
+
+
 export default {
   name: "HelloWorld",
   data() {
@@ -262,17 +262,23 @@ export default {
         },
         {
             link : 'login',
-            title : 'Logout'
-        },
-        {
-            link : 'login',
             title : 'Night Mode'
         },
       ]
     };
   },
-  components: { Footer },
-  mixins: [RouteMixin]
+  methods: {
+    async logout(){
+      axios.post(apiRoutes.main+apiRoutes.auth.logout)
+        .then(function (response) {
+          alert (response.data);
+        })
+        .catch(function (error) {
+          alert(error);
+        });
+    }
+  },
+  components: { Footer , Toaster }
 };
 </script>
 

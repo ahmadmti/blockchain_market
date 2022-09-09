@@ -22,4 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
     Route::get('/web3-login-message' , [Web3LoginController::class ,'message']);
     Route::post('/web3-login-verify' , [Web3LoginController::class ,'varify']);
+    Route::post('/logout' , [Web3LoginController::class ,'logout']);
 

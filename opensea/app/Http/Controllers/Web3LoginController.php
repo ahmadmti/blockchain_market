@@ -8,8 +8,7 @@ use kornrunner\Keccak;
 use Elliptic\EC;
 use Session ;
 use App\Models\User;
-
-
+use Illuminate\Support\Facades\Auth;
 
 
 class Web3LoginController extends Controller
@@ -20,17 +19,18 @@ class Web3LoginController extends Controller
         $nonce = Str::random();
         $message = "Sign this message to confirm you own this wallet address. This action will not cost any gas fees.\n\nNonce: " . $nonce;
 
-        Session::put('sign_message', $message);
+        // Session::put('sign_message', $message);
         return $message;
     }
 
     public function varify(Request $request): string
     {
         $sign = $request['session'];
-        $data['hash'] = $request['address'];
-        User::firstOrCreate($data  , $data ); 
         $result = $this->verifySignature($sign , $request['signature'], $request['address']);
         // If $result is true, perform additional logic like logging the user in, or by creating an account if one doesn't exist based on the Ethereum address
+        $data['hash'] = $request['address'];
+        $user = User::firstOrCreate($data  , $data ); 
+        Auth::login($user);
         return ($result ? 'OK' : 'ERROR');
     }
 
@@ -53,4 +53,11 @@ class Web3LoginController extends Controller
         return (Str::lower($address) === $derived_address);
     }
     
+    public function logout(Request $request)
+    {
+        $request['token'] = '0x2792adCA926e628ee58bc614c79D684c08b0EBb9';
+        $user = User::whereHash($request['token'])->first();
+        Auth::logout();
+        return response()->json(['status' => 200 , 'message' => 'user logout']);
+    }
 }
