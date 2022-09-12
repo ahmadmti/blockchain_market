@@ -55,9 +55,9 @@ class Web3LoginController extends Controller
     
     public function logout(Request $request)
     {
-        $request['token'] = '0x2792adCA926e628ee58bc614c79D684c08b0EBb9';
+        $request['token'] = $request['user_hash'] ;
         $user = User::whereHash($request['token'])->first();
         Auth::logout();
-        return response()->json(['status' => 200 , 'message' => 'user logout']);
+        return response()->json(['status' => 'success' , 'message' => 'user logout']);
     }
 }

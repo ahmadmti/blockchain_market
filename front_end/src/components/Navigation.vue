@@ -1,5 +1,6 @@
 <template>
   <div>
+  
     <nav class="navbar navbar-expand-lg bg-light sticky-top">
       <div class="container-fluid">
         <router-link to="/" class="navbar-brand">
@@ -150,12 +151,17 @@
         </div>
       </div>
     </nav>
-    <Toaster />
+  
+    <router-view  />
 
-    <router-view />
+    <!-- Toaster -->
+    <Toaster v-if="toast.show" :message="toast" />
+    <!-- End Toaster -->
+
     <!-- Footer  -->
     <Footer />
     <!-- End Footer -->
+    
   </div>
 </template>
 
@@ -167,9 +173,14 @@ import axios from 'axios';
 
 
 export default {
-  name: "HelloWorld",
+  name: "Navigation",
   data() {
     return {
+      toast : {
+        show : false ,
+        content : '',
+        status : '',
+      },
       explores: [
         {
           title: "Solana NFT",
@@ -264,19 +275,24 @@ export default {
             link : 'login',
             title : 'Night Mode'
         },
-      ]
+      ],
     };
   },
   methods: {
-    async logout(){
-      axios.post(apiRoutes.main+apiRoutes.auth.logout)
+     logout() {
+        axios.post(apiRoutes.main+apiRoutes.auth.logout)
         .then(function (response) {
-          alert (response.data);
-        })
+            if(response.status == 200)
+            {
+                this.toast.show = true ;
+                this.toast.status = response.data.status
+                this.toast.content = response.data.message
+            }
+        }.bind(this))
         .catch(function (error) {
-          alert(error);
+            console.log(error)
         });
-    }
+    },
   },
   components: { Footer , Toaster }
 };
