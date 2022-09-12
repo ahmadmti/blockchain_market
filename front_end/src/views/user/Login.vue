@@ -21,6 +21,8 @@
 </template>
 <script>
 import RouteMixin from '@/mixin/RouteMixin';
+import apiRoutes from '@/utils/api_routes/ApiRoutes.js'
+
 export default {
     name : 'Login',
     methods: {
@@ -30,16 +32,14 @@ export default {
                 alert('MetaMask not detected. Please install MetaMask first.');
                 return;
             }
-
             const provider = new ethers.providers.Web3Provider(window.ethereum);
-
-            let response = await fetch('http://127.0.0.1:8000/api/web3-login-message');
+            let response = await fetch(apiRoutes.main+apiRoutes.auth.web3_login);
             const message = await response.text();
-
             await provider.send("eth_requestAccounts", []);
             const address = await provider.getSigner().getAddress();
             const signature = await provider.getSigner().signMessage(message);
-            response = await fetch('http://127.0.0.1:8000/api/web3-login-verify', {
+            localStorage.setItem('hash', signature)
+            response = await fetch(apiRoutes.main+apiRoutes.auth.web3_login_varify, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -49,9 +49,8 @@ export default {
                     'signature': signature,
                     'session' : message
                 })
-            });
-
-            console.log(response)
+            })
+              
         }
     },
     mixins : [ RouteMixin ]

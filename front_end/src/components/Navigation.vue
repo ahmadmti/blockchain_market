@@ -280,10 +280,13 @@ export default {
   },
   methods: {
      logout() {
-        axios.post(apiRoutes.main+apiRoutes.auth.logout)
+        axios.post(apiRoutes.main+apiRoutes.auth.logout , {
+          hash: localStorage.getItem('hash'),
+        })
         .then(function (response) {
             if(response.status == 200)
             {
+                localStorage.removeItem('hash')
                 this.toast.show = true ;
                 this.toast.status = response.data.status
                 this.toast.content = response.data.message

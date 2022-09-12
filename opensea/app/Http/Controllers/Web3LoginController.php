@@ -31,7 +31,7 @@ class Web3LoginController extends Controller
         $data['hash'] = $request['address'];
         $user = User::firstOrCreate($data  , $data ); 
         Auth::login($user);
-        return ($result ? 'OK' : 'ERROR');
+        return $user ;
     }
 
     protected function verifySignature(string $message, string $signature, string $address): bool
@@ -55,8 +55,7 @@ class Web3LoginController extends Controller
     
     public function logout(Request $request)
     {
-        $request['token'] = $request['user_hash'] ;
-        $user = User::whereHash($request['token'])->first();
+        $user = User::whereHash($request['hash'])->first();
         Auth::logout();
         return response()->json(['status' => 'success' , 'message' => 'user logout']);
     }
