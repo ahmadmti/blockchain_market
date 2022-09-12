@@ -158,6 +158,7 @@
     <Toaster v-if="toast.show" :message="toast" />
     <!-- End Toaster -->
 
+
     <!-- Footer  -->
     <Footer />
     <!-- End Footer -->
@@ -170,7 +171,7 @@ import Footer from "./Footer.vue";
 import Toaster from './Toaster.vue';
 import apiRoutes from '@/utils/api_routes/ApiRoutes.js'
 import axios from 'axios';
-
+import RouteMixin from '@/mixin/RouteMixin' ;
 
 export default {
   name: "Navigation",
@@ -278,26 +279,40 @@ export default {
       ],
     };
   },
-  methods: {
-     logout() {
-        axios.post(apiRoutes.main+apiRoutes.auth.logout , {
-          hash: localStorage.getItem('hash'),
-        })
-        .then(function (response) {
-            if(response.status == 200)
-            {
-                localStorage.removeItem('hash')
-                this.toast.show = true ;
-                this.toast.status = response.data.status
-                this.toast.content = response.data.message
-            }
-        }.bind(this))
-        .catch(function (error) {
-            console.log(error)
-        });
+    methods: {
+        logout() {
+            axios.post(apiRoutes.main+apiRoutes.auth.logout , {
+            hash: localStorage.getItem('hash'),
+            })
+            .then(function (response) {
+                if(response.status == 200)
+                {
+                    localStorage.removeItem('hash')
+                    this.toast.show = true ;
+                    this.toast.status = response.data.status
+                    this.toast.content = response.data.message
+                }
+            }.bind(this))
+            .catch(function (error) {
+                console.log(error)
+            });
+        },  
     },
-  },
-  components: { Footer , Toaster }
+    watch:{
+        $route (to, from) {
+            let auth = localStorage.getItem('hash');
+            let authRoutes = ['/user/account','/user/collection', '/setting' , '/nft/create'];
+            let privateRoute = authRoutes.includes(to.path)
+            if (auth == null && privateRoute === true) {
+                this.changeRoute('/login')
+                this.toast.show = true ;
+                this.toast.status = 'Please Login'
+                this.toast.content = 'only Authenticated User'
+            }
+        }
+    },
+    components: { Footer , Toaster },
+    mixins : [ RouteMixin ]
 };
 </script>
 

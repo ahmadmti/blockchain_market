@@ -50,6 +50,10 @@ export default {
                     'session' : message
                 })
             })
+            
+            if(response.status === 200) {
+                this.changeRoute('/user/account');
+            }
               
         }
     },
