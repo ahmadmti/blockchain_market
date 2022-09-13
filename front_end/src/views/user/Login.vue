@@ -17,14 +17,28 @@
                 </a>
             </li>
         </ul>
+
+        <Toaster v-if="toast.show" :message="toast" />
+
+
     </div>
 </template>
 <script>
 import RouteMixin from '@/mixin/RouteMixin';
 import apiRoutes from '@/utils/api_routes/ApiRoutes.js'
+import Toaster from '@/components/Toaster.vue';
 
 export default {
     name : 'Login',
+    data() {
+        return {
+            toast : {
+                show : false , 
+                content : '',
+                status : '', 
+            },            
+        }
+    },
     methods: {
         async web3Login()
         {
@@ -32,31 +46,38 @@ export default {
                 alert('MetaMask not detected. Please install MetaMask first.');
                 return;
             }
-            const provider = new ethers.providers.Web3Provider(window.ethereum);
-            let response = await fetch(apiRoutes.main+apiRoutes.auth.web3_login);
-            const message = await response.text();
-            await provider.send("eth_requestAccounts", []);
-            const address = await provider.getSigner().getAddress();
-            const signature = await provider.getSigner().signMessage(message);
-            localStorage.setItem('hash', signature)
-            response = await fetch(apiRoutes.main+apiRoutes.auth.web3_login_varify, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    'address': address,
-                    'signature': signature,
-                    'session' : message
+            try {
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                let response = await fetch(apiRoutes.main+apiRoutes.auth.web3_login);
+                const message = await response.text();
+                await provider.send("eth_requestAccounts", []);
+                const address = await provider.getSigner().getAddress();
+                const signature = await provider.getSigner().signMessage(message);
+                localStorage.setItem('hash', signature)
+                response = await fetch(apiRoutes.main+apiRoutes.auth.web3_login_varify, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        'address': address,
+                        'signature': signature,
+                        'session' : message
+                    })
                 })
-            })
-            
-            if(response.status === 200) {
-                this.changeRoute('/user/account');
-            }
-              
+                if(response.status === 200) 
+                {
+                    this.changeRoute('/user/account');
+                }
+            } catch (error) {
+                this.toast.show = true ;
+                this.toast.status = "Error Code "+error.code;
+                this.toast.content = error.message ;
+                console.log(error)
+            } 
         }
     },
+    components : { Toaster },
     mixins : [ RouteMixin ]
 }
 </script>
