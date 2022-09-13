@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="toast-container position-fixed top-0 end-0 p-3">
-            <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="true">
+            <div class="toast fade show"  role="alert" aria-live="assertive" aria-atomic="true">
                 <div class="toast-header">
                     <strong class="me-auto text-uppercase"> {{ message.status }} </strong>
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" @click="close"></button>
@@ -19,9 +19,6 @@ export default {
     props : {
         message : {
             type : Object
-        },
-        setClass : {
-            type : String
         }
     },
     //    toast : {

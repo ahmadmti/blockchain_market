@@ -181,6 +181,7 @@ export default {
         show : false ,
         content : '',
         status : '',
+        setClass : 'fade show'
       },
       explores: [
         {
@@ -304,10 +305,14 @@ export default {
             let authRoutes = ['/user/account','/user/collection', '/setting' , '/nft/create'];
             let privateRoute = authRoutes.includes(to.path)
             if (auth == null && privateRoute === true) {
-                this.changeRoute('/login')
-                this.toast.show = true ;
+                this.toast.show = false ;
+                this.$nextTick(() => {
+                  this.toast.show = true ;
+                })
                 this.toast.status = 'Please Login'
                 this.toast.content = 'only Authenticated User'
+                this.changeRoute('/login')
+
             }
         }
     },
