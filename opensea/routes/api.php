@@ -20,7 +20,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-    Route::get('/web3-login-message' , [Web3LoginController::class ,'message']);
-    Route::post('/web3-login-verify' , [Web3LoginController::class ,'varify']);
-    Route::post('/logout' , [Web3LoginController::class ,'logout']);
+// MetaMash UserAuth Routes
+    // Route::get('/web3-login-message' , [Web3LoginController::class ,'message']);
+    // Route::post('/web3-login-verify' , [Web3LoginController::class ,'varify']);
+    // Route::post('/logout' , [Web3LoginController::class ,'logout']);
 
+    Route::controller(Web3LoginController::class)->group(function(){
+        Route::get('/web3-login-message', 'message');
+        Route::post('/web3-login-verify','varify');
+        Route::post('/logout','logout');
+    });

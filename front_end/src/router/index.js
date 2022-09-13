@@ -103,7 +103,6 @@ const routes = [
                 component: () => import('../views/settings/SettingView.vue')
             },
         ],
-  
     },
     {
         path: '/blog',
@@ -126,9 +125,44 @@ const routes = [
                 component: () => import('../views/resources/blogs/BlogDetail.vue')
             },
         ],
-
-
-    }
+    },
+    {
+        path: '/admin',
+        name: 'admin-nav',
+        component: () => import('../components/admin/setting/AdminNavigation.vue'),
+        children: [
+            {
+    
+                path: '', 
+                name: '',                                     
+                component: () => import('../components/admin/auth/AdminLogin.vue')
+            },
+            {
+                path: 'blogs',
+                name: 'admin/blogs',                                         
+                component: () => import('../components/admin/blog/AdminBlogs.vue')
+            },
+            {
+                path: 'blog/create',
+                name: 'blog/create',                                         
+                component: () => import('../components/admin/blog/Create.vue')
+            },
+            {
+                path: 'faqs',
+                name: 'admin/faqs',                                         
+                component: () => import('../components/admin/faqs/AdminFaqs.vue')
+            },
+            {
+                path: 'faq/create',
+                name: 'faqs/create',                                         
+                component: () => import('../components/admin/faqs/Create.vue')
+            },
+            {
+                path: '/:pathMatch(.*)*',
+                component: () => import('../components/admin/auth/AdminLogin.vue')
+            },
+        ],
+    },
 ]
 
 

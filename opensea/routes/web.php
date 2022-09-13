@@ -20,6 +20,7 @@ Route::get('/', function () {
 });
 
 
-
+// User Auth Routes
 Route::get('/web3' , [Web3LoginController::class , 'message']);
 Route::get('/web3-login-verify' , [Web3LoginController::class , 'varify']);
+

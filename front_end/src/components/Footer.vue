@@ -48,7 +48,14 @@
                             <router-link :to="curreny.link" class="text-decoration-none text-white">
                                 {{ curreny.title  }}
                             </router-link>
-
+                        </li>
+                        <li class="list-group-item bg-transparent border-0">
+                            <b class="text-white"> Admin </b> 
+                        </li>
+                        <li class="list-group-item bg-transparent border-0">
+                            <router-link to="/admin" class="text-decoration-none text-white">
+                                Login
+                            </router-link>
                         </li>
                     </ul>
                 </div>
