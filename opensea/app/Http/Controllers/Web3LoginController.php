@@ -29,7 +29,8 @@ class Web3LoginController extends Controller
         $result = $this->verifySignature($sign , $request['signature'], $request['address']);
         // If $result is true, perform additional logic like logging the user in, or by creating an account if one doesn't exist based on the Ethereum address
         $data['hash'] = $request['address'];
-        $user = User::firstOrCreate($data  , $data ); 
+        $data['token'] = User::token();
+        $user = User::updateOrCreate(['hash' => $request['address']]  , $data ); 
         Auth::login($user);
         return $user ;
     }
@@ -55,7 +56,8 @@ class Web3LoginController extends Controller
     
     public function logout(Request $request)
     {
-        $user = User::whereHash($request['hash'])->first();
+        $data['token'] = NULL ;
+        $user = User::whereHash($request['hash'])->first()->update($data);
         Auth::logout();
         return response()->json(['status' => 'success' , 'message' => 'user logout']);
     }

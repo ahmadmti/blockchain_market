@@ -20,15 +20,16 @@ return new class extends Migration
         
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->uuid('uuid')->default(DB::raw('(UUID())'));
             $table->string('username')->nullable();
             $table->string('bio')->nullable();
-            $table->string('link')->nullable();
+            $table->string('link')->nullable()->comment('website link');
             $table->string('twitter_link')->nullable();
             $table->string('instagram_link')->nullable();
             $table->string('hash');
             $table->string('email')->nullable()->unique();
+            $table->string('token')->nullable()->unique();
             $table->timestamp('email_verified_at')->nullable();
-            // $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });

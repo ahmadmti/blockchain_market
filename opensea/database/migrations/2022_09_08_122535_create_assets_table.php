@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('description')->nullable();        
             $table->integer('collection_id');     
             $table->string('hidden_content')->nullable();           // Trigger
-            $table->boolean('sensitive_content')->default('false'); // Porngraphic Content     
+            $table->boolean('sensitive_content')->default(false); // Porngraphic Content     
             $table->integer('supply');                              // Number of Item Minted
             $table->integer('view')->default();                     // Count View Person
             $table->string('metadata')->nullable(); // Store Media on IPFS hash or nullabe

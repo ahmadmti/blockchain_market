@@ -172,6 +172,7 @@ import Toaster from './Toaster.vue';
 import apiRoutes from '@/utils/api_routes/ApiRoutes.js'
 import axios from 'axios';
 import RouteMixin from '@/mixin/RouteMixin' ;
+import ToastMessage from '@/mixin/ToasterMessage' ;
 
 export default {
   name: "Navigation",
@@ -273,51 +274,48 @@ export default {
             link : 'setting',
             title : 'Setting'
         },
-        {
-            link : 'login',
-            title : 'Night Mode'
-        },
       ],
     };
   },
     methods: {
         logout() {
-            axios.post(apiRoutes.main+apiRoutes.auth.logout , {
-            hash: localStorage.getItem('hash'),
-            })
-            .then(function (response) {
-                if(response.status == 200)
-                {
+            let authToken = localStorage.getItem('hash');
+            if (authToken != null) {
+              axios.post(apiRoutes.main+apiRoutes.auth.logout , {
+                hash: authToken,
+              })
+              .then(function (response) {
+                console.log(' ')
+                  if(response.status == 200 && authToken != null)
+                  {
                     localStorage.removeItem('hash')
-                    this.toast.show = true ;
-                    this.toast.status = response.data.status
-                    this.toast.content = response.data.message
-                }
-            }.bind(this))
-            .catch(function (error) {
-                console.log(error)
-            });
+                    this.toasterMessage(response.data.status,response.data.message)
+                    this.changeRoute('/login')
+
+                  }
+              }.bind(this))
+              .catch(error => {
+                this.toasterMessage(error.code,error.message)
+              });              
+            } else  {
+                this.toasterMessage("Authentication Failed",'Please Login First')
+            }
+
         },  
     },
     watch:{
         $route (to, from) {
             let auth = localStorage.getItem('hash');
-            let authRoutes = ['/user/account','/user/collection', '/setting' , '/nft/create'];
+            let authRoutes = ['/user/account','/user/collection', '/setting' , '/nft/create', '#'];
             let privateRoute = authRoutes.includes(to.path)
             if (auth == null && privateRoute === true) {
-                this.toast.show = false ;
-                this.$nextTick(() => {
-                  this.toast.show = true ;
-                })
-                this.toast.status = 'Please Login'
-                this.toast.content = 'only Authenticated User'
-                this.changeRoute('/login')
-
+                this.toasterMessage('Please Login First','only Authenticated User')
+                this.changeRoute('/login');
             }
         }
     },
     components: { Footer , Toaster },
-    mixins : [ RouteMixin ]
+    mixins : [ RouteMixin , ToastMessage ]
 };
 </script>
 

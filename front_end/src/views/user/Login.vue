@@ -27,6 +27,7 @@
 import RouteMixin from '@/mixin/RouteMixin';
 import apiRoutes from '@/utils/api_routes/ApiRoutes.js'
 import Toaster from '@/components/Toaster.vue';
+import ToastMessage from '@/mixin/ToasterMessage' ;
 
 export default {
     name : 'Login',
@@ -53,7 +54,7 @@ export default {
                 await provider.send("eth_requestAccounts", []);
                 const address = await provider.getSigner().getAddress();
                 const signature = await provider.getSigner().signMessage(message);
-                localStorage.setItem('hash', signature)
+                localStorage.setItem('hash', address)
                 response = await fetch(apiRoutes.main+apiRoutes.auth.web3_login_varify, {
                     method: 'POST',
                     headers: {
@@ -70,14 +71,11 @@ export default {
                     this.changeRoute('/user/account');
                 }
             } catch (error) {
-                this.toast.show = true ;
-                this.toast.status = "Error Code "+error.code;
-                this.toast.content = error.message ;
-                console.log(error)
+                this.toasterMessage("Error Code "+error.code , error.message);
             } 
         }
     },
     components : { Toaster },
-    mixins : [ RouteMixin ]
+    mixins : [ RouteMixin , ToastMessage ]
 }
 </script>
