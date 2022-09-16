@@ -158,6 +158,16 @@ const routes = [
                 component: () => import('../components/admin/faqs/Create.vue')
             },
             {
+                path: 'categories',
+                name: 'category',                                         
+                component: () => import('../components/admin/category/CategoryList.vue')
+            },
+            {
+                path: 'category/create',
+                name: 'category/create',                                         
+                component: () => import('../components/admin/category/CategoryCreate.vue')
+            },
+            {
                 path: '/:pathMatch(.*)*',
                 component: () => import('../components/admin/auth/AdminLogin.vue')
             },

@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Web3LoginController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BlogFaqCategoryController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -30,3 +31,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
     // Admin Login
     Route::post('login' , [UserController::class , 'login']);
+    Route::apiResource('blog-faq-category' , BlogFaqCategoryController::class);
